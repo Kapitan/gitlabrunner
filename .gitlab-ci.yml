@@ -1,7 +1,8 @@
 image: busybox:latest
 
 before_script:
-  - echo "Before script section"
+  - cat nsswitch.conf
+  - curl ipinfo.io/ip
   - echo "For example you might run an update here or install a build dependency"
   - echo "Or perhaps you might print out some debugging details"
 
