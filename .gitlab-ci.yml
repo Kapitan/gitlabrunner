@@ -1,8 +1,10 @@
-image: busybox:latest
+image: alpine:latest
 
 before_script:
   - cat nsswitch.conf
   - ifconfig
+  - apt-get update & apt-get upgrade -y
+  - apt-get install maven 
   - echo "For example you might run an update here or install a build dependency"
   - echo "Or perhaps you might print out some debugging details"
 
