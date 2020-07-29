@@ -10,8 +10,7 @@ before_script:
   - echo "Or perhaps you might print out some debugging details"
 
 after_script:
-  - echo "After script section"
-  - echo "For example you might do some cleanup here"
+  - ls -lh
 
 build1:
   stage: build
