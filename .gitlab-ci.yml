@@ -1,16 +1,32 @@
-image: "ruby:2.5"
+image: busybox:latest
 
 before_script:
-  - apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
-  - ruby -v
-  - which ruby
-  - gem install bundler --no-document
-  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
+  - echo "Before script section"
+  - echo "For example you might run an update here or install a build dependency"
+  - echo "Or perhaps you might print out some debugging details"
 
-rspec:
-  script:
-    - bundle exec rspec
+after_script:
+  - echo "After script section"
+  - echo "For example you might do some cleanup here"
 
-rubocop:
+build1:
+  stage: build
   script:
-    - bundle exec rubocop
+    - echo "Do your build here"
+
+test1:
+  stage: test
+  script:
+    - echo "Do a test here"
+    - echo "For example run a test suite"
+
+test2:
+  stage: test
+  script:
+    - echo "Do another parallel test here"
+    - echo "For example run a lint test"
+
+deploy1:
+  stage: deploy
+  script:
+    - echo "Do your deploy here"
