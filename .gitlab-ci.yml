@@ -15,7 +15,7 @@ build1:
   stage: build
   script:
     - touch test.txt
-    - echo "Do your build here" > text.txt
+    - echo "Do your build here" > test.txt
   artifacts:
     paths:
       - test.txt
