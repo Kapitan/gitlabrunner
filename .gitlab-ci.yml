@@ -14,19 +14,21 @@ after_script:
 build1:
   stage: build
   script:
-    - echo "Do your build here"
     - touch test.txt
+    - echo "Do your build here" > text.txt
   artifacts:
     paths:
       - test.txt
     expire_in: 3 week
+    
+    
 test1:
   stage: test
   script:
     - curl ipinfo.io/ip
     - mvn --version
     - echo "Do a test here"
-    - echo "For example run a test suite"
+    - ls -lah
     - cat test.txt
 
 
