@@ -19,7 +19,7 @@ build1:
   artifacts:
     paths:
       - test.txt
-
+    expire_in: 3 week
 test1:
   stage: test
   script:
