@@ -2,7 +2,7 @@ image: ubuntu:latest
 
 before_script:
   - apt update -y
-  - apt install curl nmap maven -y
+  - apt install curl nmap maven docker-ce docker-compose apt-transport-https ca-certificates software-properties-common -y
 
 
 after_script:
@@ -25,8 +25,10 @@ test1:
   script:
     - curl ipinfo.io/ip
     - mvn --version
+    - docker -v
     - echo "Do a test here"
     - ls -lah
+    - docker ps
     - cat test.txt
 
 
