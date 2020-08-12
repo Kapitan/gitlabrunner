@@ -26,12 +26,12 @@ build1:
     
 test1:
   stage: test
-    script:
-      - docker -v
-      - echo "Do a test here"
-      - ls -lah
-      - docker-compose up -d
-      - cat test.txt
+  script:
+    - docker -v
+    - echo "Do a test here"
+    - ls -lah
+    - docker-compose up -d
+    - cat test.txt
 
 deploy1:
   stage: deploy
