@@ -1,0 +1,43 @@
+image: ubuntu:latest
+
+before_script:
+  - apt update -y
+  - apt install curl nmap maven apt-transport-https ca-certificates software-properties-common -y
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 
+  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
+  - apt update -y
+  - apt install docker-ce docker-compose -y
+
+after_script:
+  - echo "finish"
+
+
+build1:
+  stage: build
+  script:
+    - touch test.txt
+    - echo "Do your build here" > test.txt
+  artifacts:
+    paths:
+      - test.txt
+    expire_in: 3 week
+    
+
+    
+test1:
+  stage: test
+  script:
+    - DATETIME=$(date '+%m%d%y%H%M%S')
+    - echo $DATETIME
+    - docker -v
+    - echo "Do a test here"
+    - ls -lah
+    - docker build -t testkapitan.eva.ua/firstgitlabci:$DATETIME .
+    - docker push testkapitan.eva.ua/firstgitlabci:$DATETIME
+    - cat test.txt
+
+deploy1:
+  stage: deploy
+  script:
+    #- docker-compose up -d
+    - echo "Do your deploy here"
