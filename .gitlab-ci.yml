@@ -1,6 +1,6 @@
 image: kapitanmf/docker-dind:1.0
-variables:
-  DOCKER_HOST: tcp://localhost:2375
+#variables:
+  #DOCKER_HOST: tcp://localhost:2375
 
 
 before_script:
