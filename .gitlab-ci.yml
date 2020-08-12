@@ -2,7 +2,7 @@ image: docker:19.03
 
 before_script:
   - apk update
-  - apt add curl nmap maven 
+  - apk add curl nmap maven 
   #- apk add docker-ce docker-compose -y
 
 after_script:
