@@ -26,17 +26,13 @@ build1:
     
 test1:
   stage: test
-  script:
-    - curl ipinfo.io/ip
-#    - systemctl status docker
-    - mvn --version
-    - docker -v
-    - echo "Do a test here"
-    - ls -lah
-#    - docker-compose up -d
-    - cat test.txt
-
-image: docker:19.03
+  - image: docker:19.03
+    script:
+        - docker -v
+        - echo "Do a test here"
+        - ls -lah
+        - docker-compose up -d
+        - cat test.txt
 
 deploy1:
   stage: deploy
