@@ -1,4 +1,7 @@
 image: docker:19.03
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+
 
 before_script:
   - apk update
@@ -29,8 +32,8 @@ test1:
     - docker -v
     - echo "Do a test here"
     - ls -lah
-    - docker build -t testkapitan.eva.ua/firstgitlabci:$DATETIME .
-    - docker push testkapitan.eva.ua/firstgitlabci:$DATETIME
+    - docker build -t testkapitan.eva.ua:443/firstgitlabci:$DATETIME .
+    - docker push testkapitan.eva.ua:443/firstgitlabci:$DATETIME
     - cat test.txt
 
 deploy1:
