@@ -22,21 +22,24 @@ build1:
       - test.txt
     expire_in: 3 week
     
+
     
 test1:
   stage: test
   script:
     - curl ipinfo.io/ip
-    - systemctl status docker
+#    - systemctl status docker
     - mvn --version
     - docker -v
     - echo "Do a test here"
     - ls -lah
-    - docker-compose up -d
+#    - docker-compose up -d
     - cat test.txt
 
+image: docker:19.03
 
 deploy1:
   stage: deploy
   script:
+    - docker-compose up -d
     - echo "Do your deploy here"
