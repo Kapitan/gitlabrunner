@@ -25,8 +25,8 @@ build1:
 
     
 test1:
-    stage: test
-    scripts:
+  stage: test
+  scripts:
     - image: docker:19.03
       script:
         - docker -v
