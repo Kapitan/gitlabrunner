@@ -1,3 +1,13 @@
+build:
+  image: docker:19.03.12
+  stage: build
+  services:
+    - docker:19.03.12-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/group/project/image:latest .
+    - docker push $CI_REGISTRY/group/project/image:latest
+
 image: docker:latest
 #variables:
   #DOCKER_HOST: tcp://localhost:2375
@@ -28,7 +38,10 @@ build1:
 
     
 test1:
+  image: docker:19.03.12
   stage: test
+  services:
+    - docker:19.03.12-dind
   script:
     - DATETIME=$(date '+%m%d%y%H%M%S')
     - echo $DATETIME
