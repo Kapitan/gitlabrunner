@@ -2,7 +2,7 @@ image: docker:latest
 #variables:
   #DOCKER_HOST: tcp://localhost:2375
 variables:
-  DOCKER_DRIVER: overlay2
+  DOCKER_DRIVER: overlay
 
 
 
