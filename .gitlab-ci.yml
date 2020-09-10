@@ -37,7 +37,7 @@ test1:
     - DATETIME=$(date '+%m%d%y%H%M%S')
     - echo $DATETIME
     - docker -v
-    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" "$CI_REGISTRY" --password-stdin
     - echo "Do a test here"
     - ls -lah
     - docker build -t kapitanmf/firstgitlabci:$DATETIME .
