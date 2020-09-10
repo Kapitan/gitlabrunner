@@ -37,10 +37,11 @@ test1:
     - DATETIME=$(date '+%m%d%y%H%M%S')
     - echo $DATETIME
     - docker -v
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
     - echo "Do a test here"
     - ls -lah
-    - docker build -t testkapitan.eva.ua:443/firstgitlabci:$DATETIME .
-    - docker push testkapitan.eva.ua:443/firstgitlabci:$DATETIME
+    - docker build -t kapitanmf/firstgitlabci:$DATETIME .
+    - docker push kapitanmf/firstgitlabci:$DATETIME
     - cat test.txt
 
 deploy1:
