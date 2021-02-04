@@ -10,7 +10,7 @@ variables:
 before_script:
   - ls -la
   - apk add curl 
-  - apk add docker-ce docker-compose -y
+  - apk add docker-ce docker-compose
 
 after_script:
   - echo "finish"
