@@ -9,7 +9,7 @@ variables:
 
 before_script:
   - ls -la
-  #- apk add curl nmap maven 
+  - apk add curl 
   - apk add docker-ce docker-compose -y
 
 after_script:
