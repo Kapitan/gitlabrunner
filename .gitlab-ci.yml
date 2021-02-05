@@ -48,5 +48,5 @@ test1:
 deploy1:
   stage: deploy
   script:
-    - docker-compose up -d
+    - cat docker-compose.yaml
     #- echo "Do your deploy here"
