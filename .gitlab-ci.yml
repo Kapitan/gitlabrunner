@@ -40,10 +40,14 @@ test1:
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
     - echo "Do a test here"
     - ls -lah
-    - sed -i 's@CONTAINER_IMAGE@'"firstgitlabci:$DATETIME"'@' docker-compose.yaml
+    - sed -i 's@CONTAINER_IMAGE@'"kapitanmf/firstgitlabci:$DATETIME"'@' docker-compose.yaml
     - docker build -t kapitanmf/firstgitlabci:$DATETIME .
     - docker push kapitanmf/firstgitlabci:$DATETIME
     - cat docker-compose.yaml
+  artifacts:
+    paths:
+      - docker-compose.yaml
+    expire_in: 1 week
 
 deploy1:
   stage: deploy
