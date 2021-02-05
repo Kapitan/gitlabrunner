@@ -52,6 +52,6 @@ test1:
 deploy1:
   stage: deploy
   script:
-    - sed -i 's@CONTAINER_IMAGE@'"firstgitlabci:$DATETIME"'@' docker-compose.yaml
+   # - sed -i 's@CONTAINER_IMAGE@'"firstgitlabci:$DATETIME"'@' docker-compose.yaml
     - cat docker-compose.yaml
     #- echo "Do your deploy here"
