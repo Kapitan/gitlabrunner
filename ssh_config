@@ -13,7 +13,7 @@ root@wksit0011:/etc/ssh# cat /etc/ssh/ssh_config
 # Thus, host-specific definitions should be at the beginning of the
 # configuration file, and defaults at the end.
 
-# Site-wide defaults for some commonly used options.  For a comprehensive
+# Site-wide defaults for some commonly used options.  For a comprehensivel
 # list of available options, their meanings and defaults, please see the
 # ssh_config(5) man p age.
 
