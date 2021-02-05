@@ -29,7 +29,7 @@ build1:
 
     
 test1:
-  image: docker:latest
+  image: docker:stable
   stage: test
   services:
     - docker:19.03.12-dind
